@@ -79,7 +79,7 @@
         android:id="@+id/imageNormal"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toStartOf="@id/imageShiny"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,12 +93,66 @@
         android:id="@+id/imageShiny"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/CD_imgShiny"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imageNormal"
         app:layout_constraintTop_toBottomOf="@+id/dexTextView"
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textWeight"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="Weight"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/textHeight"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageNormal"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textHeight"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Height"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textWeight"
+        app:layout_constraintTop_toBottomOf="@+id/imageShiny"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textWeightHint"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="@string/weight"
+        app:layout_constraintEnd_toStartOf="@id/textHeightHint"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWeight"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/textHeightHint"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textWeightHint"
+        app:layout_constraintTop_toBottomOf="@+id/textHeight"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

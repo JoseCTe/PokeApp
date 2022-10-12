@@ -4,6 +4,9 @@
     <string name="dexText">National Dex #:</string>
     <string name="networkError">No network connection…</string>
 
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+
     <string name="CD_imgIcon">Pokemon Icon</string>
     <string name="CD_imgArtwork">Official Artwork</string>
     <string name="CD_imgDefault">Default Sprite</string>

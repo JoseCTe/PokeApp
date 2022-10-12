@@ -69,6 +69,8 @@ object Utils{
             res = str.replace("-m", " ♂")
         } else if(str.endsWith("-f")) {
             res = str.replace("-f", " ♀")
+        } else if(str.endsWith("-normal")){
+            res = str.replace("-normal", "")
         }
         return res
     }
