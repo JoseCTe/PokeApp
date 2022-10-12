@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PokeApp</string>
+
+    <string name="dexText">National Dex #:</string>
+
+    <string name="CD_imgIcon">Pokemon Icon</string>
+    <string name="CD_imgArtwork">Official Artwork</string>
+    <string name="CD_imgDefault">Default Sprite</string>
+    <string name="CD_imgShiny">Shiny Sprite</string>
+</resources>
