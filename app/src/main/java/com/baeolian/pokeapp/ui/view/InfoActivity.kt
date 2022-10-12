@@ -35,8 +35,8 @@ class InfoActivity : AppCompatActivity() {
             var name = pokemon.name.replaceFirstChar { it.uppercase() }
             name = Utils.checkSpecialChar(name)
             pokemonName.text = name
-            textHeight.text = "${pokemon.height/10} m"
-            textWeight.text = "${pokemon.weight/10} kg"
+            textHeight.text = "${pokemon.height/10f} m"
+            textWeight.text = "${pokemon.weight/10f} kg"
             dexTextView.text = getString(R.string.dexText) + " ${pokemon.id}"
 
             Glide.with(this)
