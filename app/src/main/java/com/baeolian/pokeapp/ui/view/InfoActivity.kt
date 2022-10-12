@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.baeolian.pokeapp.R
@@ -28,15 +27,15 @@ class InfoActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun initializeUI(){
-        val id = intent.extras?.get("id") as Int
+        val id = intent.extras?.getInt("id") as Int
 
         viewModel.getPokemonInfo(id)
 
-        viewModel.pokemonInfo.observe(this, Observer { pokemon ->
+        viewModel.pokemonInfo.observe(this) { pokemon ->
             var name = pokemon.name.replaceFirstChar { it.uppercase() }
             name = Utils.checkSpecialChar(name)
             pokemonName.text = name
-            dexTextView.text = R.string.dexText.toString() + " ${pokemon.id}"
+            dexTextView.text = getString(R.string.dexText) + " ${pokemon.id}"
 
             val circularProgressDrawable = CircularProgressDrawable(this)
             circularProgressDrawable.strokeWidth = 5f
@@ -58,6 +57,6 @@ class InfoActivity : AppCompatActivity() {
                 .load(pokemon.sprites.frontShiny)
                 .placeholder(circularProgressDrawable)
                 .into(imageShiny)
-        })
+        }
     }
 }

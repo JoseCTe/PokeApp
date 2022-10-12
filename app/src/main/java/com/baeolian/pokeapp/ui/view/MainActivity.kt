@@ -3,7 +3,6 @@ package com.baeolian.pokeapp.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baeolian.pokeapp.R
@@ -35,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         listViewModel.getPokemonList()
 
-        listViewModel.pokemonList.observe(this, Observer { list ->
+        listViewModel.pokemonList.observe(this) { list ->
             (recyclerView.adapter as PokemonAdapter).setData(list)
-        })
+        }
     }
 }

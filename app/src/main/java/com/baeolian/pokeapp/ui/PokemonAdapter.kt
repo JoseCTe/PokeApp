@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.baeolian.pokeapp.R
 import com.baeolian.pokeapp.data.model.PokemonModel
-import com.baeolian.pokeapp.ui.view.InfoActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.pokemon_holder.view.*
 
