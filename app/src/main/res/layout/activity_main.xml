@@ -8,6 +8,13 @@
     android:background="@color/background"
     tools:context=".ui.view.MainActivity">
 
+    <include
+        android:id="@+id/networkError"
+        android:visibility="gone"
+        layout="@layout/network_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"

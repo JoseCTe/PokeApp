@@ -37,26 +37,29 @@ class InfoActivity : AppCompatActivity() {
             pokemonName.text = name
             dexTextView.text = getString(R.string.dexText) + " ${pokemon.id}"
 
-            val circularProgressDrawable = CircularProgressDrawable(this)
-            circularProgressDrawable.strokeWidth = 5f
-            circularProgressDrawable.centerRadius = 30f
-            circularProgressDrawable.setColorSchemeColors(Color.GRAY)
-            circularProgressDrawable.start()
-
             Glide.with(this)
                 .load(pokemon.sprites.other.officialArtwork.image)
-                .placeholder(circularProgressDrawable)
+                .placeholder(newLoadingCircle(150f))
                 .into(imageView)
 
             Glide.with(this)
                 .load(pokemon.sprites.frontDefault)
-                .placeholder(circularProgressDrawable)
+                .placeholder(newLoadingCircle(30f))
                 .into(imageNormal)
 
             Glide.with(this)
                 .load(pokemon.sprites.frontShiny)
-                .placeholder(circularProgressDrawable)
+                .placeholder(newLoadingCircle(30f))
                 .into(imageShiny)
         }
+    }
+
+    private fun newLoadingCircle(size : Float) : CircularProgressDrawable{
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 20f
+        circularProgressDrawable.centerRadius = size
+        circularProgressDrawable.setColorSchemeColors(Color.GRAY)
+        circularProgressDrawable.start()
+        return circularProgressDrawable
     }
 }

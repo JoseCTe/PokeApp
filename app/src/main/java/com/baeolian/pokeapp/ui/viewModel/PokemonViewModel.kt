@@ -33,7 +33,6 @@ class PokemonViewModel : ViewModel() {
             override fun onFailure(call: Call<PokemonDetails>, t: Throwable) {
                 call.cancel()
             }
-
         })
     }
 }

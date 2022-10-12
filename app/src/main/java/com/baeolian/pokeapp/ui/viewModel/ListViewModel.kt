@@ -23,7 +23,7 @@ class ListViewModel : ViewModel() {
     val pokemonList = MutableLiveData<List<PokemonModel>>()
 
     fun getPokemonList(){
-        val call = service.getPokemonList(151,0)
+        val call = service.getPokemonList(386,0)
 
         call.enqueue(object : Callback<ResponseModel> {
             override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
