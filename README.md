@@ -1,5 +1,8 @@
 # PokeApp
+[![Android CI](https://github.com/JoseCTe/PokeApp/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/JoseCTe/PokeApp/actions/workflows/android.yml)
+
 _A simple Pokédex Android application_
+
 ### Technologies used
 - Minimum SDK: 21
 - Target SDK: 33
