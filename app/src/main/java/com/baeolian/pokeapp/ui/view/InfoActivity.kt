@@ -60,7 +60,7 @@ class InfoActivity : AppCompatActivity() {
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 20f
         circularProgressDrawable.centerRadius = size
-        circularProgressDrawable.setColorSchemeColors(Color.GRAY)
+        circularProgressDrawable.setColorSchemeColors(Color.parseColor("#F9AA33"))
         circularProgressDrawable.start()
         return circularProgressDrawable
     }

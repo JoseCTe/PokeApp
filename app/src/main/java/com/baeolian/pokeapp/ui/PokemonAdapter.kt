@@ -1,6 +1,7 @@
 package com.baeolian.pokeapp.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,7 @@ class PokemonAdapter(val pokemonClick: (Int) -> Unit): RecyclerView.Adapter<Poke
         val circularProgressDrawable = CircularProgressDrawable(holder.itemView.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.setColorSchemeColors(Color.parseColor("#F9AA33"))
         circularProgressDrawable.start()
 
         val realPosition = position + 1
