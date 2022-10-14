@@ -1,4 +1,6 @@
-package com.baeolian.pokeapp.data.network
+@file:Suppress("DEPRECATION")
+
+package com.baeolian.pokeapp.core
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -11,7 +13,7 @@ import android.os.Build
 import androidx.lifecycle.LiveData
 
 @Suppress("DEPRECATION")
-class NetworkConnection(private val context: Context) : LiveData<Boolean>() {
+class Network(private val context: Context) : LiveData<Boolean>() {
 
     private val connectivityManager: ConnectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

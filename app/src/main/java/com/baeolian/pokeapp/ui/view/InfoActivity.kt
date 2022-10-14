@@ -1,13 +1,12 @@
 package com.baeolian.pokeapp.ui.view
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.baeolian.pokeapp.R
-import com.baeolian.pokeapp.ui.Utils
+import com.baeolian.pokeapp.core.Utils.checkSpecialChar
+import com.baeolian.pokeapp.core.Utils.newLoadingCircle
 import com.baeolian.pokeapp.ui.viewModel.PokemonViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_info.*
@@ -33,7 +32,7 @@ class InfoActivity : AppCompatActivity() {
 
         viewModel.pokemonInfo.observe(this) { pokemon ->
             var name = pokemon.name.replaceFirstChar { it.uppercase() }
-            name = Utils.checkSpecialChar(name)
+            name = checkSpecialChar(name)
             pokemonName.text = name
             textHeight.text = "${pokemon.height/10f} m"
             textWeight.text = "${pokemon.weight/10f} kg"
@@ -41,27 +40,18 @@ class InfoActivity : AppCompatActivity() {
 
             Glide.with(this)
                 .load(pokemon.sprites.other.officialArtwork.image)
-                .placeholder(newLoadingCircle(150f))
+                .placeholder(newLoadingCircle(this, 150f))
                 .into(imageView)
 
             Glide.with(this)
                 .load(pokemon.sprites.frontDefault)
-                .placeholder(newLoadingCircle(30f))
+                .placeholder(newLoadingCircle(this, 30f))
                 .into(imageNormal)
 
             Glide.with(this)
                 .load(pokemon.sprites.frontShiny)
-                .placeholder(newLoadingCircle(30f))
+                .placeholder(newLoadingCircle(this, 30f))
                 .into(imageShiny)
         }
-    }
-
-    private fun newLoadingCircle(size : Float) : CircularProgressDrawable{
-        val circularProgressDrawable = CircularProgressDrawable(this)
-        circularProgressDrawable.strokeWidth = 20f
-        circularProgressDrawable.centerRadius = size
-        circularProgressDrawable.setColorSchemeColors(Color.parseColor("#F9AA33"))
-        circularProgressDrawable.start()
-        return circularProgressDrawable
     }
 }
