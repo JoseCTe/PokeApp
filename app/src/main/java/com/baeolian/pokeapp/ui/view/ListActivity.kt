@@ -12,7 +12,7 @@ import com.baeolian.pokeapp.ui.PokemonAdapter
 import com.baeolian.pokeapp.ui.viewModel.ListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity() {
 
     private lateinit var listViewModel : ListViewModel
     private var initializedUI : Boolean = false
