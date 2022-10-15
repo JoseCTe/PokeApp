@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baeolian.pokeapp.R
-import com.baeolian.pokeapp.core.Network
+import com.baeolian.pokeapp.core.Internet
 import com.baeolian.pokeapp.ui.PokemonAdapter
 import com.baeolian.pokeapp.ui.viewModel.ListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,9 +28,9 @@ class ListActivity : AppCompatActivity() {
 
     private fun initializeNetworkWatchdog(){
         val layoutInflater = findViewById<View>(R.id.networkError)
-        val network= Network(applicationContext)
+        val internet= Internet(applicationContext)
 
-        network.observeForever { isConnected ->
+        internet.observeForever { isConnected ->
             if (isConnected) {
                 if (!initializedUI){
                     initializeUI()

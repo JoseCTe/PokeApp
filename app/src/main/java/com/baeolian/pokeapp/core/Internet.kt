@@ -13,7 +13,7 @@ import android.os.Build
 import androidx.lifecycle.LiveData
 
 @Suppress("DEPRECATION")
-class Network(private val context: Context) : LiveData<Boolean>() {
+class Internet(private val context: Context) : LiveData<Boolean>() {
 
     private val connectivityManager: ConnectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
