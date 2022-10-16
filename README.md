@@ -11,7 +11,7 @@ _A simple Pokédex Android application_
 - [Retrofit2](https://github.com/square/retrofit): Construct the REST APIs and paging network data.
 - [Glide](https://github.com/bumptech/glide): Loading images from network.
 
-### //TODO:
+### // TODO:
 - [x] ~~Clean Architecture design~~
 - [x] ~~Model + data classes~~
 - [x] ~~API access w/ Retrofit and LiveData~~
