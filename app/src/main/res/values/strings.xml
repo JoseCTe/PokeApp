@@ -11,4 +11,5 @@
     <string name="CD_imgArtwork">Official Artwork</string>
     <string name="CD_imgDefault">Default Sprite</string>
     <string name="CD_imgShiny">Shiny Sprite</string>
+    <string name="CD_imgNetworkError">Network Error Icon</string>
 </resources>

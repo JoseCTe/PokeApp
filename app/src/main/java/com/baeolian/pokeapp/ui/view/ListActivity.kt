@@ -3,6 +3,7 @@ package com.baeolian.pokeapp.ui.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,23 +28,29 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun initializeNetworkWatchdog(){
-        val layoutInflater = findViewById<View>(R.id.networkError)
+        val layoutError = findViewById<View>(R.id.networkError)
         val internet= Internet(applicationContext)
 
         internet.observeForever { isConnected ->
             if (isConnected) {
                 if (!initializedUI){
                     initializeUI()
+                } else{
+                    unlockUI()
                 }
-                layoutInflater.visibility = View.GONE
+
+                layoutError.visibility = View.GONE
+
             } else {
-                layoutInflater.visibility = View.VISIBLE
-                layoutInflater.bringToFront()
+                layoutError.visibility = View.VISIBLE
+                layoutError.bringToFront()
+                blockUI()
             }
         }
     }
 
     private fun initializeUI(){
+        unlockUI()
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         recyclerView.adapter = PokemonAdapter{
@@ -59,5 +66,14 @@ class ListActivity : AppCompatActivity() {
         }
 
         initializedUI = true
+    }
+
+    private fun blockUI(){
+        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+    }
+
+    private fun unlockUI(){
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 }
