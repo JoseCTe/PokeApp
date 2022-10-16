@@ -1,6 +1,8 @@
 # PokeApp
 [![Android CI](https://github.com/JoseCTe/PokeApp/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/JoseCTe/PokeApp/actions/workflows/android.yml)
 
+<img align="right" src="https://github.com/JoseCTe/PokeApp/raw/main/.github/main_screen.png" width="250">
+
 _A simple Pokédex Android application_
 
 ### Technologies used
