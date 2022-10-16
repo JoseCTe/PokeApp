@@ -59,7 +59,7 @@ class ListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        listViewModel.getPokemonList()
+        listViewModel.getPokemonList(386, 0)
 
         listViewModel.pokemonList.observe(this) { list ->
             (recyclerView.adapter as PokemonAdapter).setData(list)

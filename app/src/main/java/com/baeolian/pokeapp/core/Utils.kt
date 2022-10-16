@@ -2,7 +2,13 @@ package com.baeolian.pokeapp.core
 
 import android.content.Context
 import android.graphics.Color
+import androidx.annotation.VisibleForTesting
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 
 object Utils {
 
@@ -30,5 +36,34 @@ object Utils {
         circularProgressDrawable.setColorSchemeColors(Color.parseColor("#F9AA33"))
         circularProgressDrawable.start()
         return circularProgressDrawable
+    }
+
+    // Obtain LiveData in testing environments
+    @VisibleForTesting(otherwise = VisibleForTesting.NONE)
+    fun <T> LiveData<T>.getOrAwaitValue(
+        time: Long = 2,
+        timeUnit: TimeUnit = TimeUnit.SECONDS,
+        afterObserve: () -> Unit = {}
+    ): T {
+        var data: T? = null
+        val latch = CountDownLatch(1)
+        val observer = object : Observer<T> {
+            override fun onChanged(o: T?) {
+                data = o
+                latch.countDown()
+                this@getOrAwaitValue.removeObserver(this)
+            }
+        }
+        this.observeForever(observer)
+        try {
+            afterObserve.invoke()
+            if (!latch.await(time, timeUnit)) {
+                throw TimeoutException("LiveData value was never set.")
+            }
+        } finally {
+            this.removeObserver(observer)
+        }
+        @Suppress("UNCHECKED_CAST")
+        return data as T
     }
 }
